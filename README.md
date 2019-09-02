@@ -36,7 +36,7 @@ This module requires these other modules and libraries:
 
 ### COPYRIGHT AND LICENCE
 
-Copyright (C) 2019 by https://vroncevic.github.io/gen_rpc/
+Copyright (C) 2019 by https://vroncevic.github.io/rpc_skeleton/
 
 This tool is free software; you can redistribute it and/or modify
 it under the same terms as Python itself, either Python version 2.7/3.4 or,
