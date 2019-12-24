@@ -21,7 +21,8 @@ This module requires these other modules and libraries:
 * ats_utilities https://vroncevic.github.io/ats_utilities
 
 ### RPC System
-![alt tag](https://raw.githubusercontent.com/vroncevic/rpc_skeleton/dev/rpc_skeleton_docs/rpc_system.png)
+![alt tag](https://raw.githubusercontent.com/vroncevic/rpc_skeleton/dev/python-tool-docs/rpc_system.png)
+
 ```
 1. Client encodes data through XDR Filter
 2. Client passes XDR encoded data across network to remote host
@@ -32,7 +33,7 @@ This module requires these other modules and libraries:
 ```
 
 ### RPC Mapper
-![alt tag](https://raw.githubusercontent.com/vroncevic/rpc_skeleton/dev/rpc_skeleton_docs/rpc_portmap.png)
+![alt tag](https://raw.githubusercontent.com/vroncevic/rpc_skeleton/dev/python-tool-docs/rpc_portmap.png)
 
 ### COPYRIGHT AND LICENCE
 
