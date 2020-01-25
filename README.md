@@ -9,9 +9,9 @@ other information that should be provided before the modules are installed.
 To install this set of modules type the following:
 
 ```
-cp -R ~/rpc_skeleton_scripts/bin/   /root/scripts/gen_rpc/ver.1.0/
-cp -R ~/rpc_skeleton_scripts/conf/  /root/scripts/gen_rpc/ver.1.0/
-cp -R ~/rpc_skeleton_scripts/log/   /root/scripts/gen_rpc/ver.1.0/
+cp -R ~/gen_rpc/bin/   /root/scripts/gen_rpc/ver.1.0/
+cp -R ~/gen_rpc/conf/  /root/scripts/gen_rpc/ver.1.0/
+cp -R ~/gen_rpc/log/   /root/scripts/gen_rpc/ver.1.0/
 ```
 
 ### DEPENDENCIES
@@ -21,7 +21,7 @@ This module requires these other modules and libraries:
 * ats_utilities https://vroncevic.github.io/ats_utilities
 
 ### RPC System
-![alt tag](https://raw.githubusercontent.com/vroncevic/rpc_skeleton/dev/python-tool-docs/rpc_system.png)
+![alt tag](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/python-tool-docs/rpc_system.png)
 
 ```
 1. Client encodes data through XDR Filter
@@ -33,11 +33,11 @@ This module requires these other modules and libraries:
 ```
 
 ### RPC Mapper
-![alt tag](https://raw.githubusercontent.com/vroncevic/rpc_skeleton/dev/python-tool-docs/rpc_portmap.png)
+![alt tag](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/python-tool-docs/rpc_portmap.png)
 
 ### COPYRIGHT AND LICENCE
 
-Copyright (C) 2019 by https://vroncevic.github.io/rpc_skeleton/
+Copyright (C) 2019 by https://vroncevic.github.io/gen_rpc/
 
 This tool is free software; you can redistribute it and/or modify
 it under the same terms as Python itself, either Python version 2.7/3.4 or,
