@@ -21,7 +21,7 @@ other information that should be provided before the modules are installed.
     - [Install using setuptools](#install-using-setuptools)
     - [Install using docker](#install-using-docker)
 - [Dependencies](#dependencies)
-- [Generation flow of py module](#generation-flow-of-py-module)
+- [Generation flow of RPC modules](#generation-flow-of-rpc-modules)
 - [RPC System](#rpc-system)
 - [RPC Mapper](#rpc-mapper)
 - [Tool structure](#tool-structure)
