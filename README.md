@@ -90,7 +90,7 @@ Base flow of generation process:
 ![alt tag](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/docs/gen_rpc_flow.png)
 
 ### RPC System
-![alt tag](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/python-tool-docs/rpc_system.png)
+![alt tag](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/docs/rpc_system.png)
 
 ```
 1. Client encodes data through XDR Filter
@@ -102,7 +102,7 @@ Base flow of generation process:
 ```
 
 ### RPC Mapper
-![alt tag](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/python-tool-docs/rpc_portmap.png)
+![alt tag](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/docs/rpc_portmap.png)
 
 ### Tool structure
 
