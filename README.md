@@ -1,6 +1,6 @@
 <img align="right" src="https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/docs/gen_rpc_logo.png" width="25%">
 
-# Generate RPC
+# Generate RPC modules
 
 **gen_rpc** is tool for generation of RPC modules.
 
@@ -31,6 +31,10 @@ other information that should be provided before the modules are installed.
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ### Installation
+
+Used next development environment
+
+![Development environment](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/docs/debtux.png)
 
 ![Install Python2 Package](https://github.com/vroncevic/gen_rpc/workflows/Install%20Python2%20Package%20gen_rpc/badge.svg?branch=master) ![Install Python3 Package](https://github.com/vroncevic/gen_rpc/workflows/Install%20Python3%20Package%20gen_rpc/badge.svg?branch=master)
 
@@ -87,10 +91,10 @@ You can use docker to create image/container.
 
 Base flow of generation process:
 
-![alt tag](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/docs/gen_rpc_flow.png)
+![RPC generation flow](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/docs/gen_rpc_flow.png)
 
 ### RPC System
-![alt tag](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/docs/rpc_system.png)
+![RPC system](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/docs/rpc_system.png)
 
 ```
 1. Client encodes data through XDR Filter
@@ -102,11 +106,11 @@ Base flow of generation process:
 ```
 
 ### RPC Mapper
-![alt tag](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/docs/rpc_portmap.png)
+![RPC portmap](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/docs/rpc_portmap.png)
 
 ### Tool structure
 
-**gen_rpc** is based on OOP:
+**gen_rpc** is based on OOP.
 
 Generator structure:
 
@@ -120,6 +124,7 @@ Generator structure:
 
 More documentation and info at:
 * [gen_rpc.readthedocs.io](https://gen_rpc.readthedocs.io/en/latest/)
+* [rpc mechanism](overview.md)
 * [www.python.org](https://www.python.org/)
 
 ### Copyright and Licence
