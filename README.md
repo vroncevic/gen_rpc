@@ -115,7 +115,31 @@ Base flow of generation process:
 Generator structure:
 
 ```
-
+gen_rpc/
+├── conf/
+│   ├── gen_rpc.cfg
+│   ├── gen_rpc_util.cfg
+│   ├── project.yaml
+│   └── template/
+│       ├── template_xdr_rpc.yaml
+│       └── xdr_rpc/
+│           ├── rpc_client.template
+│           ├── rpc_server.template
+│           └── rpc_square.template
+├── __init__.py
+├── log/
+│   └── gen_rpc.log
+├── pro/
+│   ├── config/
+│   │   ├── __init__.py
+│   │   ├── pro_name.py
+│   │   ├── pro_selector.py
+│   │   └── pro_type.py
+│   ├── __init__.py
+│   ├── read_template.py
+│   └── write_template.py
+└── run/
+    └── gen_rpc_run.py
 ```
 
 ### Docs

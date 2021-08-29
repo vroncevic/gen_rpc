@@ -44,3 +44,6 @@ an RPC protocol to be available simultaneously. Each version contains a a
 number of procedures that can be called remotely. Each procedure has a
 procedure number.
 
+### Development process of RPC service
+
+[Development process](example.md) of RPC Application.

@@ -1,0 +1,7 @@
+gen_rpc
+=======
+
+.. toctree::
+   :maxdepth: 4
+
+   gen_rpc

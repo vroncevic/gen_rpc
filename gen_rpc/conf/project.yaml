@@ -1,0 +1,6 @@
+types:
+    - XDR RPC
+    - cancel
+templates:
+    - template_xdr_rpc.yaml
+    - cancel
