@@ -24,6 +24,7 @@ import sys
 from os.path import exists
 
 try:
+    from six import add_metaclass
     from pathlib import Path
     from gen_rpc.pro import RPCService
     from ats_utilities.logging import ATSLogger
@@ -40,12 +41,13 @@ __author__ = 'Vladimir Roncevic'
 __copyright__ = 'Copyright 2019, https://vroncevic.github.io/gen_rpc'
 __credits__ = ['Vladimir Roncevic']
 __license__ = 'https://github.com/vroncevic/gen_rpc/blob/dev/LICENSE'
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
 
 
+@add_metaclass(CooperativeMeta)
 class GenRPC(CfgCLI):
     '''
         Defined class GenRPC with attribute(s) and method(s).
@@ -53,7 +55,6 @@ class GenRPC(CfgCLI):
         It defines:
 
             :attributes:
-                | __metaclass__ - setting cooperative metaclasses.
                 | GEN_VERBOSE - console text indicator for process-phase.
                 | CONFIG - tool info file path.
                 | LOG - tool log file path.
@@ -65,7 +66,6 @@ class GenRPC(CfgCLI):
                 | __str__ - dunder method for GenRPC.
     '''
 
-    __metaclass__ = CooperativeMeta
     GEN_VERBOSE = 'GEN_RPC'
     CONFIG = '/conf/gen_rpc.cfg'
     LOG = '/log/gen_rpc.log'
