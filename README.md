@@ -4,7 +4,7 @@
 
 **gen_rpc** is tool for generation of RPC modules.
 
-Developed in **[python](https://www.python.org/)** code: **100%**.
+Developed in **[python](https://www.python.org/)** code.
 
 The README is used to introduce the modules and provide instructions on
 how to install the modules, any machine dependencies it may have and any
@@ -38,7 +38,7 @@ Used next development environment
 
 ![Install Python2 Package](https://github.com/vroncevic/gen_rpc/workflows/Install%20Python2%20Package%20gen_rpc/badge.svg?branch=master) ![Install Python3 Package](https://github.com/vroncevic/gen_rpc/workflows/Install%20Python3%20Package%20gen_rpc/badge.svg?branch=master)
 
-Currently there are three ways to install tool:
+Currently there are three ways to install tool
 * Install process based on pip
 * Install process based on setup.py (setuptools)
 * Install process based on docker mechanism
@@ -48,7 +48,8 @@ Currently there are three ways to install tool:
 Python package is located at **[pypi.org](https://pypi.org/project/gen-rpc/)**.
 
 You can install by using pip
-```
+
+```bash
 # python2
 pip install gen-rpc
 # python3
@@ -60,7 +61,8 @@ pip3 install gen-rpc
 Navigate to release **[page](https://github.com/vroncevic/gen_rpc/releases/)** download and extract release archive.
 
 To install modules, locate and run setup.py with arguments
-```
+
+```bash
 tar xvzf gen_rpc-x.y.z.tar.gz
 cd gen_rpc-x.y.z/
 # python2
@@ -83,20 +85,20 @@ You can use docker to create image/container.
 
 ### Dependencies
 
-**gen_rpc** requires next modules and libraries:
+**gen_rpc** requires next modules and libraries
 
 * [ats-utilities - Python App/Tool/Script Utilities](https://vroncevic.github.io/ats_utilities)
 
 ### Generation flow of RPC modules
 
-Base flow of generation process:
+Base flow of generation process
 
 ![RPC generation flow](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/docs/gen_rpc_flow.png)
 
 ### RPC System
 ![RPC system](https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/docs/rpc_system.png)
 
-```
+```bash
 1. Client encodes data through XDR Filter
 2. Client passes XDR encoded data across network to remote host
 3. Server decodes data through XDR Filter
@@ -112,11 +114,12 @@ Base flow of generation process:
 
 **gen_rpc** is based on OOP.
 
-Generator structure:
+Generator structure
 
-```
+```bash
 gen_rpc/
 ├── conf/
+│   ├── gen_rpc.logo
 │   ├── gen_rpc.cfg
 │   ├── gen_rpc_util.cfg
 │   ├── project.yaml
@@ -146,7 +149,7 @@ gen_rpc/
 
 [![Documentation Status](https://readthedocs.org/projects/gen_rpc/badge/?version=latest)](https://gen_rpc.readthedocs.io/projects/gen_rpc/en/latest/?badge=latest)
 
-More documentation and info at:
+More documentation and info at
 * [gen_rpc.readthedocs.io](https://gen_rpc.readthedocs.io/en/latest/)
 * [rpc mechanism](overview.md)
 * [www.python.org](https://www.python.org/)
