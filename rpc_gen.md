@@ -12,6 +12,7 @@ The second synopsis provides special features which allow for the creation
 of more sophisticated RPC servers. These features include support for RPC
 dispatch tables, and user provided #defines. The entries in the ONC RPC
 dispatch table contain:
+
 ```
   pointers to the service routine corresponding to that procedure,
   a pointer to the input and output arguments,
@@ -29,6 +30,7 @@ The C-preprocessor, cpp, is run on all input files before they are actually
 interpreted by rpcgen, so all the cpp directives are legal within an rpcgen
 input file. For each type of output file, rpcgen defines a special cpp symbol
 for use by the rpcgen programmer:
+
 ```
   RPC_HDR   Defined when compiling into header files,
   RPC_XDR   Defined when compiling into XDR routines,
@@ -42,6 +44,5 @@ with `%' is passed directly into the output file, uninterpreted by rpcgen.
 
 You can customize some of your XDR routines by leaving those data types
 undefined. For every data type that is undefined, rpcgen will assume that
-there exists a routine with the name xdr_ prepended to the name of the
+there exists a routine with the name xdr\_ prepended to the name of the
 undefined type.
-

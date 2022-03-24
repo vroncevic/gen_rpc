@@ -21,9 +21,9 @@
 '''
 
 import sys
+from os.path import dirname, realpath
 
 try:
-    from pathlib import Path
     from gen_rpc.pro.config import ProConfig
     from gen_rpc.pro.config.pro_name import ProName
     from gen_rpc.pro.config.pro_type import ProType
@@ -97,7 +97,7 @@ class RPCService(FileChecking, ProConfig, ProName, ProType):
         ProName.__init__(self, verbose=verbose)
         ProType.__init__(self, verbose=verbose)
         project_structure = '{0}{1}'.format(
-            Path(__file__).parent, RPCService.PRO_STRUCTURE
+            dirname(realpath(__file__)), RPCService.PRO_STRUCTURE
         )
         self.check_path(file_path=project_structure, verbose=verbose)
         self.check_mode(file_mode='r', verbose=verbose)
@@ -181,14 +181,8 @@ class RPCService(FileChecking, ProConfig, ProName, ProType):
                     'to be processed template', pro_type.capitalize()
                 )
             while True:
-                try:
-                    try:
-                        input_type = raw_input(' select RPC type: ')
-                    except NameError:
-                        input_type = input(' select RPC type: ')
-                    options = xrange(1, pro_types_len + 1, 1)
-                except NameError:
-                    options = range(1, pro_types_len + 1, 1)
+                input_type = input(' select RPC type: ')
+                options = range(1, pro_types_len + 1, 1)
                 try:
                     if int(input_type) in list(options):
                         template_selected = self.config['templates'][

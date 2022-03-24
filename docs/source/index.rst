@@ -3,7 +3,7 @@ Generate RPC modules
 
 **gen_rpc** is tool for generation of RPC modules.
 
-Developed in `python <https://www.python.org/>`_ code: **100%**.
+Developed in `python <https://www.python.org/>`_ code.
 
 The README is used to introduce the modules and provide instructions on
 how to install the modules, any machine dependencies it may have and any
@@ -25,7 +25,7 @@ other information that should be provided before the modules are installed.
 
 .. toctree::
    :maxdepth: 4
-   :caption: Contents:
+   :caption: Contents
 
    self
    modules
@@ -45,7 +45,7 @@ Navigate to release `page`_ download and extract release archive.
 
 .. _page: https://github.com/vroncevic/gen_rpc/releases
 
-To install this set of modules type the following:
+To install this set of modules type the following
 
 .. code-block:: bash
 
@@ -62,7 +62,7 @@ To install this set of modules type the following:
     python3 setup.py install_egg_info
     python3 setup.py install_data
 
-You can use Docker to create image/container, or You can use pip to install:
+You can use Docker to create image/container, or You can use pip to install
 
 .. code-block:: bash
 
@@ -79,14 +79,14 @@ You can use Docker to create image/container, or You can use pip to install:
 Dependencies
 -------------
 
-**gen_rpc** requires next modules and libraries:
+**gen_rpc** requires next modules and libraries
 
 * `ats-utilities - Python App/Tool/Script Utilities <https://pypi.org/project/ats-utilities/>`_
 
 Generation process
 -------------------
 
-Generation flow:
+Generation flow
 
 .. image:: https://raw.githubusercontent.com/vroncevic/gen_rpc/dev/docs/gen_rpc_flow.png
 
@@ -95,12 +95,13 @@ Tool structure
 
 **gen_rpc** is based on OOP.
 
-Code structure:
+Code structure
 
 .. code-block:: bash
 
     gen_rpc/
     ├── conf/
+    │   ├── gen_rpc.logo
     │   ├── gen_rpc.cfg
     │   ├── gen_rpc_util.cfg
     │   ├── project.yaml

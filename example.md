@@ -5,18 +5,21 @@ A client/server lookup in a personal database on a remote machine.
 Assuming that we cannot access the database from the local machine (via NFS).
 We use UNIX to run a remote shell and execute the command this way.
 There are some problems with this method:
+
 ```
   the command may be slow to execute.
   You require an login account on the remote machine.
 ```
 
 The RPC alternative is to
+
 ```
   establish an server on the remote machine that can respond to queries.
   Retrieve information by calling a query which will be quicker than previous approach.
 ```
 
 To develop an RPC application the following steps are needed:
+
 ```
   Specify the protocol for client server communication.
   Develop the client program.
@@ -43,11 +46,13 @@ rpcgen exists as a standalone executable compiler that reads special files
 denoted by a .x prefix.
 
 So to compile a RPCL file you simply do:
+
 ```
 rpcgen rpcprog.x
 ```
 
 This will generate possibly four files:
+
 ```
 rpcprog_clnt.c -- the client stub
 rpcprog_svc.c -- the server stub
@@ -87,41 +92,53 @@ rpcprog_clnt.c, rpcprog_svc.c, rpcprog_xdr.c, rpcprog.h.
 The client and server program must include ( #include "rpcprog.h").
 
 You must then:
- - compile the client code:
+
+- compile the client code:
+
 ```
 cc -c rpcprog.c
 ```
- - compile the client stub:
+
+- compile the client stub:
+
 ```
 cc -c rpcprog_clnt.c
+
 ```
 
- - compile the XDR filter:
+- compile the XDR filter:
+
 ```
 cc -c rpcprog_xdr.c
 ```
 
- - build the client executable:
+- build the client executable:
+
 ```
 cc -o rpcprog rpcprog.o rpcprog_clnt.o rpcprog_xdr.c
 ```
 
- - compile the service procedures:
+- compile the service procedures:
+
 ```
 cc -c rpcsvc.c
 ```
 
- - compile the server stub:
-```
-cc -c rpcprog_svc.c
-```
+- compile the server stub:
 
- - build the server executable:
-```
+````
+cc -c rpcprog_svc.c
+```s
+
+- build the server executable:
+
+````
+
 cc -o rpcsvc rpcsvc.o rpcprog_svc.o rpcprog_xdr.c
+
 ```
 
 Now simply run the programs rpcprog and rpcsvc on the client and server
 respectively. The server procedures must be registered before the client can
 call them.
-
+```
