@@ -5,13 +5,15 @@ Subpackages
 -----------
 
 .. toctree::
+   :maxdepth: 4
 
-    gen_rpc.pro
+   gen_rpc.pro
 
 Module contents
 ---------------
 
 .. automodule:: gen_rpc
-    :members:
-    :undoc-members:
-    :show-inheritance:
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:

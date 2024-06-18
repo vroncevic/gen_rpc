@@ -1,137 +1,140 @@
 # -*- coding: UTF-8 -*-
 
 '''
- Module
-     write_template.py
- Copyright
-     Copyright (C) 2019 Vladimir Roncevic <elektron.ronca@gmail.com>
-     gen_rpc is free software: you can redistribute it and/or modify it
-     under the terms of the GNU General Public License as published by the
-     Free Software Foundation, either version 3 of the License, or
-     (at your option) any later version.
-     gen_rpc is distributed in the hope that it will be useful, but
-     WITHOUT ANY WARRANTY; without even the implied warranty of
-     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-     See the GNU General Public License for more details.
-     You should have received a copy of the GNU General Public License along
-     with this program. If not, see <http://www.gnu.org/licenses/>.
- Info
-     Defined class WriteTemplate with attribute(s) and method(s).
-     Created API for write operation of template content.
+Module
+    write_template.py
+Copyright
+    Copyright (C) 2019 - 2024 Vladimir Roncevic <elektron.ronca@gmail.com>
+    gen_rpc is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by the
+    Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    gen_rpc is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License along
+    with this program. If not, see <http://www.gnu.org/licenses/>.
+Info
+    Defines class WriteTemplate with attribute(s) and method(s).
+    Creates an API for writing source and build modules.
 '''
 
 import sys
-from datetime import date
-from os import getcwd, chmod
+from typing import List, Dict
+from os import getcwd, chmod, mkdir
+from os.path import exists
+from datetime import datetime
 from string import Template
 
 try:
-    from ats_utilities.checker import ATSChecker
-    from ats_utilities.config_io.base_check import FileChecking
+    from ats_utilities.config_io.file_check import FileCheck
     from ats_utilities.console_io.verbose import verbose_message
     from ats_utilities.exceptions.ats_type_error import ATSTypeError
-    from ats_utilities.exceptions.ats_bad_call_error import ATSBadCallError
+    from ats_utilities.exceptions.ats_value_error import ATSValueError
 except ImportError as ats_error_message:
-    MESSAGE = '\n{0}\n{1}\n'.format(__file__, ats_error_message)
-    sys.exit(MESSAGE)  # Force close python ATS ##############################
+    # Force close python ATS ##################################################
+    sys.exit(f'\n{__file__}\n{ats_error_message}\n')
 
 __author__ = 'Vladimir Roncevic'
-__copyright__ = 'Copyright 2019, https://vroncevic.github.io/gen_rpc'
-__credits__ = ['Vladimir Roncevic']
+__copyright__ = '(C) 2024, https://vroncevic.github.io/gen_rpc'
+__credits__: List[str] = ['Vladimir Roncevic', 'Python Software Foundation']
 __license__ = 'https://github.com/vroncevic/gen_rpc/blob/dev/LICENSE'
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
 
 
-class WriteTemplate(FileChecking):
+class WriteTemplate(FileCheck):
     '''
-        Defined class WriteTemplate with attribute(s) and method(s).
-        Created API for write operation of template content.
+        Defines class WriteTemplate with attribute(s) and method(s).
+        Creates an API for writing source and build modules.
+
         It defines:
 
             :attributes:
-                | GEN_VERBOSE - console text indicator for process-phase.
+                | _GEN_VERBOSE - Console text indicator for process-phase.
             :methods:
-                | __init__ - initial constructor.
-                | get_setup - getter for setup file object.
-                | write - write a template content to a RPC files.
-                | __str__ - dunder method for WriteTemplate.
+                | __init__ - Initials WriteTemplate constructor.
+                | write - Writes a templates with parameters.
     '''
 
-    GEN_VERBOSE = 'GEN_RPC::PRO::WRITE_TEMPLATE'
+    _GEN_VERBOSE: str = 'GEN_RPC::PRO::WRITE_TEMPLATE'
 
-    def __init__(self, verbose=False):
+    def __init__(self, verbose: bool = False) -> None:
         '''
-            Initial constructor.
+            Initials WriteTemplate constructor.
 
-            :param verbose: enable/disable verbose option.
+            :param verbose: Enable/Disable verbose option
             :type verbose: <bool>
-            :exceptions: None
+            :exceptions: ATSTypeError
         '''
-        FileChecking.__init__(self, verbose=verbose)
-        verbose_message(WriteTemplate.GEN_VERBOSE, verbose, 'init writer')
+        super().__init__(verbose)
+        verbose_message(verbose, [f'{self._GEN_VERBOSE.lower()} init writer'])
 
-    def write(self, setup_content, pro_name, verbose=False):
+    def write(
+        self,
+        templates: List[Dict[str, str]],
+        pro_name: str | None,
+        verbose: bool = False
+    ) -> bool:
         '''
-            Write a template content to a RPC files.
+            Writes a templates with parameters.
 
-            :param setup_content: template content.
-            :type setup_content: <list>
-            :param pro_name: parameter project name.
-            :type pro_name: <str>
-            :param verbose: enable/disable verbose option.
+            :param templates: List of templates
+            :type templates: <List[Dict[str, str]]>
+            :param pro_name: Project name | None
+            :type pro_name: <str> | <NoneType>
+            :param verbose: Enable/Disable verbose option
             :type verbose: <bool>
-            :return: boolean status, True (success) | False.
+            :return: True (templates written) | False
             :rtype: <bool>
-            :exception: ATSTypeError | ATSBadCallError
+            :exceptions: ATSTypeError | ATSValueError
         '''
-        checker, error, status = ATSChecker(), None, False
-        error, status = checker.check_params([
-            ('list:setup_content', setup_content),
-            ('str:pro_name', pro_name)
+        error_msg: str | None = None
+        error_id: int | None = None
+        error_msg, error_id = self.check_params([
+            ('list:templates', templates), ('str:pro_name', pro_name)
         ])
-        if status == ATSChecker.TYPE_ERROR:
-            raise ATSTypeError(error)
-        if status == ATSChecker.VALUE_ERROR:
-            raise ATSBadCallError(error)
-        status, template = False, None
-        package = {
-            'PRO': '{0}'.format(pro_name),
-            'YEAR': '{0}'.format(date.today().year)
-        }
-        for setup in setup_content:
-            for module, template_content in setup.items():
-                template = Template(template_content)
-                if template:
-                    module_path = '{0}/{1}'.format(getcwd(), module)
-                    with open(module_path, 'w') as setup_file:
-                        setup_file.write(template.substitute(package))
-                        verbose_message(
-                            WriteTemplate.GEN_VERBOSE, verbose,
-                            'write', module_path
-                        )
-                        chmod(module_path, 0o666)
-                        self.check_path(module_path, verbose=verbose)
-                        self.check_mode('w', verbose=verbose)
-                        self.check_format(
-                            module_path, module_path.split('.')[1],
-                            verbose=verbose
-                        )
-                        if self.is_file_ok():
-                            status = True
-        return status
-
-    def __str__(self):
-        '''
-            Dunder method for WriteTemplate.
-
-            :return: object in a human-readable format.
-            :rtype: <str>
-            :exceptions: None
-        '''
-        return '{0} ({1}, {2})'.format(
-            self.__class__.__name__, FileChecking.__str__(self),
-            str(self.__setup)
-        )
+        if error_id == self.TYPE_ERROR:
+            raise ATSTypeError(error_msg)
+        if not bool(templates):
+            raise ATSValueError('missing templates')
+        if not bool(pro_name):
+            raise ATSValueError('missing project name')
+        all_stat: List[bool] = []
+        pro_dir: str = f'{getcwd()}/{pro_name}/'
+        src_dir: str = f'{getcwd()}/{pro_name}/src'
+        num_of_modules: int = len(templates)
+        if not exists(pro_dir):
+            mkdir(pro_dir)
+            mkdir(src_dir)
+        for template_content in templates:
+            module_name: str = list(template_content.keys())[0]
+            template: Template = Template(template_content[module_name])
+            module_path: str = f'{pro_dir}{module_name}'
+            with open(module_path, 'w', encoding='utf-8') as module_file:
+                module_content: str = template.substitute(
+                    {
+                        'PRO': f'{pro_name}',
+                        'YEAR': f'{datetime.now().year}'
+                    }
+                )
+                module_file.write(module_content)
+                chmod(module_path, 0o666)
+                self.check_path(module_path, verbose)
+                self.check_mode('w', verbose)
+                if 'makefile'.capitalize() in module_path:
+                    self.check_format(module_path, 'makefile', verbose)
+                else:
+                    self.check_format(
+                        module_path, module_path.split('.')[1], verbose
+                    )
+                if self.is_file_ok():
+                    all_stat.append(True)
+                else:
+                    all_stat.append(False)
+        return all([
+            bool(all_stat), all(all_stat), len(all_stat) == num_of_modules
+        ])

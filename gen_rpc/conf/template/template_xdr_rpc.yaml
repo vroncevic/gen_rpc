@@ -1,8 +1,0 @@
-templates:
-  - xdr_rpc/rpc_client.template
-  - xdr_rpc/rpc_server.template
-  - xdr_rpc/rpc_square.template
-modules:
-  - rpc_client.c
-  - rpc_server.c
-  - rpc_square.x
