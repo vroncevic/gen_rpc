@@ -84,9 +84,9 @@ setup(
             f'{CONF}/gen_rpc_util.cfg',
             f'{CONF}/project.yaml',
             f'{TEMPLATE}/template_xdr_rpc.yaml',
-            f'{TEMPLATE}/xdr_rpc/rpc_client.template',
-            f'{TEMPLATE}/xdr_rpc/rpc_server.template',
-            f'{TEMPLATE}/xdr_rpc/rpc_square.template',
+            f'{TEMPLATE}/rpc_client.template',
+            f'{TEMPLATE}/rpc_server.template',
+            f'{TEMPLATE}/rpc_square.template',
             f'{LOG}/gen_rpc.log'
         ]
     },
