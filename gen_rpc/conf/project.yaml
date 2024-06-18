@@ -1,6 +1,9 @@
-types:
-    - XDR RPC
-    - cancel
 templates:
-    - template_xdr_rpc.yaml
-    - cancel
+  - rpc_client.template
+  - rpc_server.template
+  - rpc_square.template
+
+modules:
+  - rpc_client.c
+  - rpc_server.c
+  - rpc_square.x
