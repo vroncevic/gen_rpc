@@ -131,25 +131,38 @@ Generator structure
 
 ```bash
     gen_rpc/
-        ├── conf/
-        │   ├── gen_rpc.cfg
-        │   ├── gen_rpc.logo
-        │   ├── gen_rpc_util.cfg
-        │   ├── project.yaml
-        │   └── template/
-        │       ├── rpc_client.template
-        │       ├── rpc_server.template
-        │       └── rpc_square.template
-        ├── __init__.py
-        ├── log/
-        │   └── gen_rpc.log
-        ├── pro/
-        │   ├── __init__.py
-        │   ├── read_template.py
-        │   └── write_template.py
-        └── run/
-            └── gen_rpc_run.py
+       ├── conf/
+       │   ├── gen_rpc.cfg
+       │   ├── gen_rpc.logo
+       │   ├── gen_rpc_util.cfg
+       │   ├── project.yaml
+       │   └── template/
+       │       ├── rpc_client.template
+       │       ├── rpc_server.template
+       │       └── rpc_square.template
+       ├── __init__.py
+       ├── log/
+       │   └── gen_rpc.log
+       ├── pro/
+       │   ├── __init__.py
+       │   ├── read_template.py
+       │   └── write_template.py
+       ├── py.typed
+       └── run/
+           └── gen_rpc_run.py
+
+    6 directories, 14 files
 ```
+
+### Code coverage
+
+| Name | Stmts | Miss | Cover |
+|------|-------|------|-------|
+| `gen_rpc/__init__.py` | 71 | 12 | 83% |
+| `gen_rpc/pro/__init__.py` | 59 | 2 | 97% |
+| `gen_rpc/pro/read_template.py` | 53 | 2 | 96% |
+| `gen_rpc/pro/write_template.py` | 60 | 5 | 92% |
+| **Total** | 243 | 21 | 91% |
 
 ### Docs
 
