@@ -4,7 +4,7 @@
 Module
     conf.py
 Copyright
-    Copyright (C) 2019 - 2024 Vladimir Roncevic <elektron.ronca@gmail.com>
+    Copyright (C) 2019 - 2026 Vladimir Roncevic <elektron.ronca@gmail.com>
     gen_rpc is free software: you can redistribute it and/or modify it
     under the terms of the GNU General Public License as published by the
     Free Software Foundation, either version 3 of the License, or
@@ -27,9 +27,9 @@ from typing import Any, List, Dict, Tuple
 sys.path.insert(0, os.path.abspath('../../'))
 
 project: str = 'gen_rpc'
-project_copyright: str = '2024, Vladimir Roncevic <elektron.ronca@gmail.com>'
+project_copyright: str = '2026, Vladimir Roncevic <elektron.ronca@gmail.com>'
 author: str = 'Vladimir Roncevic <elektron.ronca@gmail.com>'
-version: str = '1.0.3'
+version: str = '1.0.4'
 release: str = 'https://github.com/vroncevic/gen_rpc/releases'
 extensions: List[str] = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode']
 templates_path: List[str] = ['_templates']

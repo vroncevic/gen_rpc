@@ -25,6 +25,7 @@ other information that should be provided before the modules are installed.
 - [RPC System](#rpc-system)
 - [RPC Mapper](#rpc-mapper)
 - [Tool structure](#tool-structure)
+- [Code coverage](#code-coverage)
 - [Docs](#docs)
 - [Copyright and Licence](#copyright-and-licence)
 
@@ -158,11 +159,11 @@ Generator structure
 
 | Name | Stmts | Miss | Cover |
 |------|-------|------|-------|
-| `gen_rpc/__init__.py` | 71 | 12 | 83% |
-| `gen_rpc/pro/__init__.py` | 59 | 2 | 97% |
-| `gen_rpc/pro/read_template.py` | 53 | 2 | 96% |
-| `gen_rpc/pro/write_template.py` | 60 | 5 | 92% |
-| **Total** | 243 | 21 | 91% |
+| `gen_rpc/__init__.py` | 69 | 10 | 86%|
+| `gen_rpc/pro/__init__.py` | 57 | 0 | 100%|
+| `gen_rpc/pro/read_template.py` | 51 | 0 | 100%|
+| `gen_rpc/pro/write_template.py` | 58 | 3 | 95%|
+| **Total** | 235 | 13 | 94% |
 
 ### Docs
 
@@ -181,7 +182,7 @@ More documentation and info at
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Copyright (C) 2019 - 2024 by [vroncevic.github.io/gen_rpc](https://vroncevic.github.io/gen_rpc)
+Copyright (C) 2019 - 2026 by [vroncevic.github.io/gen_rpc](https://vroncevic.github.io/gen_rpc)
 
 **gen_rpc** is free software; you can redistribute it and/or modify
 it under the same terms as Python itself, either Python version 3.x or,
