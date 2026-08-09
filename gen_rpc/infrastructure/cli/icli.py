@@ -2,9 +2,9 @@
 
 '''
 Module
-    __init__.py
+    icli.py
 Copyright
-    Copyright (C) 2019 - 2026 Vladimir Roncevic <elektron.ronca@gmail.com>
+    Copyright (C) 2026 Vladimir Roncevic <elektron.ronca@gmail.com>
     gen_rpc is free software: you can redistribute it and/or modify it
     under the terms of the GNU General Public License as published by the
     Free Software Foundation, either version 3 of the License, or
@@ -16,8 +16,12 @@ Copyright
     You should have received a copy of the GNU General Public License along
     with this program. If not, see <http://www.gnu.org/licenses/>.
 Info
-    Initialization module for the gen_rpc.
+    Defines abstract interface ICLI for the command line interface.
 '''
+
+from __future__ import annotations
+
+from typing import Protocol, runtime_checkable
 
 __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2026, https://vroncevic.github.io/gen_rpc'
@@ -27,3 +31,34 @@ __version__ = '1.0.5'
 __maintainer__ = 'Vladimir Roncevic'
 __email__ = 'elektron.ronca@gmail.com'
 __status__ = 'Updated'
+
+
+@runtime_checkable
+class ICLI(Protocol):
+    '''
+        Abstract interface for the command line interface.
+
+        It defines:
+
+            :methods:
+                | run - Parses command line arguments and executes selected command strategy.
+                | is_initialized - Checks if the CLI is initialized.
+    '''
+
+    def run(self) -> dict[str, object]:
+        '''
+            Parses command line arguments and executes selected command strategy.
+
+            :return: The execution result.
+            :exceptions: None.
+        '''
+        ...
+
+    def is_initialized(self) -> bool:
+        '''
+            Checks if the CLI is initialized.
+
+            :return: True if initialized, False otherwise.
+            :exceptions: None.
+        '''
+        ...

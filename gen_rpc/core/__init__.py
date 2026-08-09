@@ -4,7 +4,7 @@
 Module
     __init__.py
 Copyright
-    Copyright (C) 2019 - 2026 Vladimir Roncevic <elektron.ronca@gmail.com>
+    Copyright (C) 2026 Vladimir Roncevic <elektron.ronca@gmail.com>
     gen_rpc is free software: you can redistribute it and/or modify it
     under the terms of the GNU General Public License as published by the
     Free Software Foundation, either version 3 of the License, or
@@ -16,8 +16,10 @@ Copyright
     You should have received a copy of the GNU General Public License along
     with this program. If not, see <http://www.gnu.org/licenses/>.
 Info
-    Initialization module for the gen_rpc.
+    Initializes the gen_rpc.core package.
 '''
+
+from __future__ import annotations
 
 __author__ = 'Vladimir Roncevic'
 __copyright__ = '(C) 2026, https://vroncevic.github.io/gen_rpc'
