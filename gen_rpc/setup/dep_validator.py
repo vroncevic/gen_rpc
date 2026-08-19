@@ -23,6 +23,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 
+from ats_utilities.exceptions import ATSValueError, ATSTypeError
 from ats_utilities.validation.check_type import istype
 from ats_utilities.validation.check_value import not_none
 
@@ -47,6 +48,7 @@ class GenRPCBundleDependenciesValidator:
 
             :methods:
                 | validate - Validates the gen_rpc bundle dependencies.
+                | is_valid - Checks if the gen_rpc bundle dependencies is valid.
     '''
 
     @classmethod
@@ -75,3 +77,18 @@ class GenRPCBundleDependenciesValidator:
 
             not_none(attribute, ctx, msg_attr_name_none)
             istype(attribute, expected_type, ctx, msg_attr_name_istype)
+
+    @classmethod
+    def is_valid(cls, genrpcbundledependencies: GenRPCBundleDependencies) -> bool:
+        '''
+            Checks if the genrpcbundledependencies is valid.
+
+            :param genrpcbundledependencies: The genrpcbundledependencies to be checked.
+            :return: True if valid, False otherwise.
+        '''
+        try:
+            cls.validate(genrpcbundledependencies)
+            return True
+
+        except (ATSValueError, ATSTypeError):
+            return False

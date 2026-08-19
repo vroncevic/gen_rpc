@@ -1,7 +1,7 @@
-gen\_rpc.pro.write\_template module
+gen\_rpc.core.service.engine module
 ===================================
 
-.. automodule:: gen_rpc.pro.write_template
+.. automodule:: gen_rpc.core.service.engine
    :members:
    :undoc-members:
    :show-inheritance:

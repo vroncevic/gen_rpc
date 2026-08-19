@@ -22,6 +22,7 @@ Info
 from __future__ import annotations
 
 from ats_utilities.base.setup.bundle import BaseBundle
+from ats_utilities.exceptions import ATSValueError, ATSTypeError
 from ats_utilities.validation.check_value import not_none
 from ats_utilities.validation.check_type import istype
 
@@ -48,6 +49,7 @@ class GenRPCBundleValidator:
 
             :methods:
                 | validate - Validates the gen_rpc bundle.
+                | is_valid - Checks if the gen_rpc bundle is valid.
     '''
 
     @classmethod
@@ -85,3 +87,18 @@ class GenRPCBundleValidator:
         istype(bundle.service, IService, ctx, msg_service_istype)
         istype(bundle.subprocessor, ISubProcessor, ctx, msg_subprocessor_istype)
         istype(bundle.cli, ICLI, ctx, msg_cli_istype)
+
+    @classmethod
+    def is_valid(cls, genrpcbundle: GenRPCBundle) -> bool:
+        '''
+            Checks if the genrpcbundle is valid.
+
+            :param genrpcbundle: The genrpcbundle to be checked.
+            :return: True if valid, False otherwise.
+        '''
+        try:
+            cls.validate(genrpcbundle)
+            return True
+
+        except (ATSValueError, ATSTypeError):
+            return False

@@ -50,6 +50,7 @@ class GenRPCBundleRegistry:
 
             :methods:
                 | create_bundle - Creates the gen_rpc bundle.
+                | get_version - Returns the registry version.
     '''
 
     @classmethod
@@ -79,3 +80,13 @@ class GenRPCBundleRegistry:
         GenRPCBundleValidator.validate(bundle)
 
         return bundle
+
+    @classmethod
+    def get_version(cls) -> str:
+        '''
+            Returns the registry version.
+
+            :return: The registry version.
+            :exceptions: None.
+        '''
+        return __version__

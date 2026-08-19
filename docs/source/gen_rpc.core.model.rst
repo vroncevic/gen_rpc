@@ -1,5 +1,5 @@
-gen\_rpc.pro package
-====================
+gen\_rpc.core.model package
+===========================
 
 Submodules
 ----------
@@ -7,13 +7,12 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
-   gen_rpc.pro.read_template
-   gen_rpc.pro.write_template
+   gen_rpc.core.model.project_setup
 
 Module contents
 ---------------
 
-.. automodule:: gen_rpc.pro
+.. automodule:: gen_rpc.core.model
    :members:
    :undoc-members:
    :show-inheritance:

@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
 '''
@@ -19,6 +18,8 @@ Copyright
 Info
     Defines setup for tool gen_rpc.
 '''
+
+from __future__ import annotations
 
 from os import walk
 from os.path import abspath, dirname, join, relpath
@@ -44,15 +45,12 @@ VERSIONS: list[str] = ['3.12', '3.13', '3.14']
 SUPPORTED_PY_VERSIONS: list[str] = [f'{PROGRAMMING_LANG} {VERSION}' for VERSION in VERSIONS]
 PYP_CLASSIFIERS: list[str] = SUPPORTED_PY_VERSIONS
 
-
 def find_package_data(pkg: str) -> list[str]:
     '''
         Finds all files in package to include in package_data.
 
         :param pkg: Package folder name.
-        :type pkg: <str>
         :return: List of package files relative to the package folder.
-        :rtype: <list[str]>
         :exceptions: None.
     '''
     package_data: list[str] = []
@@ -69,7 +67,6 @@ def find_package_data(pkg: str) -> list[str]:
             package_data.append(rel_path)
 
     return package_data
-
 
 setup(
     name='gen_rpc',

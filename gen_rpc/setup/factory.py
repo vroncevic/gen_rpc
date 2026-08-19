@@ -63,6 +63,7 @@ class GenRPCBundleFactory:
                 | _info_file - Path to the gen_rpc info file.
             :methods:
                 | create_bundle - Creates the gen_rpc bundle with optional pre-configured options.
+                | get_version - Returns the factory version.
     '''
 
     _info_file: str = 'gen_rpc/infrastructure/config/gen_rpc.cfg'
@@ -129,3 +130,13 @@ class GenRPCBundleFactory:
                 cli=cli
             )
         )
+
+    @classmethod
+    def get_version(cls) -> str:
+        '''
+            Returns the factory version.
+
+            :return: The factory version.
+            :exceptions: None.
+        '''
+        return __version__
