@@ -36,10 +36,19 @@ other information that should be provided before the tool is installed.
 🚀 Installation
 -----------------
 
-|gen_rpc python3 build|
+|gen_rpc python3 build| |gen_rpc interface checker| |gen_rpc isp checker| |gen_rpc srp checker|
 
 .. |gen_rpc python3 build| image:: https://github.com/vroncevic/gen_rpc/actions/workflows/gen_rpc_python3_build.yml/badge.svg
    :target: https://github.com/vroncevic/gen_rpc/actions/workflows/gen_rpc_python3_build.yml
+
+.. |gen_rpc interface checker| image:: https://github.com/vroncevic/gen_rpc/actions/workflows/gen_rpc_interface_checker.yml/badge.svg
+   :target: https://github.com/vroncevic/gen_rpc/actions/workflows/gen_rpc_interface_checker.yml
+
+.. |gen_rpc isp checker| image:: https://github.com/vroncevic/gen_rpc/actions/workflows/gen_rpc_isp_checker.yml/badge.svg
+   :target: https://github.com/vroncevic/gen_rpc/actions/workflows/gen_rpc_isp_checker.yml
+
+.. |gen_rpc srp checker| image:: https://github.com/vroncevic/gen_rpc/actions/workflows/gen_rpc_srp_checker.yml/badge.svg
+   :target: https://github.com/vroncevic/gen_rpc/actions/workflows/gen_rpc_srp_checker.yml
 
 Navigate to release `page`_ download and extract release archive.
 
