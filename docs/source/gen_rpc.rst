@@ -7,7 +7,16 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   gen_rpc.pro
+   gen_rpc.core
+   gen_rpc.setup
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   gen_rpc.engine
 
 Module contents
 ---------------

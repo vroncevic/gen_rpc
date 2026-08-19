@@ -5,3 +5,4 @@ gen_rpc
    :maxdepth: 4
 
    gen_rpc
+   main
